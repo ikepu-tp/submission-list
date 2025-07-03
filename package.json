@@ -4,8 +4,13 @@
   "author": "ikepu-tp",
   "scripts": {
     "copy-html": "copyfiles -u 1 'src/**/*.html' dist/",
-    "build": "tsc || true && yarn copy-html && cp ./appsscript.json ./dist/appsscript.json && clasp push"
+    "dev": "vite",
+    "push": "clasp push",
+    "build:frontend": "vite build",
+    "build:backend": "tsc || true",
+    "build": "yarn build:frontend && yarn build:backend && yarn push"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ikepu-tp/submission-list.git"
@@ -16,8 +21,20 @@
   },
   "homepage": "https://github.com/ikepu-tp/submission-list#readme",
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@fontsource/roboto": "^5.2.6",
+    "@mui/material": "^7.2.0",
     "@types/google-apps-script": "^1.0.99",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
     "copyfiles": "^2.4.1",
-    "typescript": "^5.8.3"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.1",
+    "vite-plugin-singlefile": "^2.3.0",
+    "vite-plugin-static-copy": "^3.1.0"
   }
 }

@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "none",
+    "target": "esnext",
+    "lib": ["ESNext"],
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "server",
     "strict": false,
-    "noEmitOnError": false,
-    "noImplicitAny": false,
-    "types": ["google-apps-script"],
-    "lib": ["esnext"],
-    "experimentalDecorators": true
+    "esModuleInterop": true
   },
-  "include": ["src"]
+  "include": ["server"]
 }

@@ -24,7 +24,7 @@ function showLicense() {
 }
 
 /**
- * @return {SpreadsheetApp.Sheet}
+ * @return {GoogleAppsScript.Spreadsheet.Sheet}
  */
 function getSettingSheet() {
   return SS.getSheetById(0);
