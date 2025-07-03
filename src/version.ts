@@ -1,4 +1,4 @@
-Version.setNewVersion("v1.0.0")
+Version.setNewVersion("v1.0.0");
 Version.setIsCheckingUpdate(getSettingSheet().getRange("A4").getValue());
 
 function checkUpdate() {

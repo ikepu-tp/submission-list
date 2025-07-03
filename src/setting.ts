@@ -1,3 +1,6 @@
+type SettingResource = {
+  [key: string]: string;
+};
 /**
  * 設定値
  *
@@ -11,9 +14,7 @@ let SettingValues = {};
  * @param {keyof SettingResource|undefiend} key
  * @return {Record<string, string>}
  */
-function getSettingValues(
-  key = undefined
-) {
+function getSettingValues(key = undefined) {
   if (SettingValues === null)
     SettingValues = getSettingSheet()
       .getRange("C:E")

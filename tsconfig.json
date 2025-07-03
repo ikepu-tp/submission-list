@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "none",
+    "outDir": "dist",
+    "rootDir": "src",
+    "strict": false,
+    "noEmitOnError": false,
+    "noImplicitAny": false,
+    "types": ["google-apps-script"],
+    "lib": ["esnext"],
+    "experimentalDecorators": true
+  },
+  "include": ["src"]
+}
