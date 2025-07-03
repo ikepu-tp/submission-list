@@ -1,0 +1,23 @@
+{
+  "name": "submission-list",
+  "version": "1.0.0",
+  "author": "ikepu-tp",
+  "scripts": {
+    "copy-html": "copyfiles -u 1 'src/**/*.html' dist/",
+    "build": "tsc || true && yarn copy-html && cp ./appsscript.json ./dist/appsscript.json && clasp push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ikepu-tp/submission-list.git"
+  },
+  "license": "https://ikepu-tp.com/license/",
+  "bugs": {
+    "url": "https://github.com/ikepu-tp/submission-list/issues"
+  },
+  "homepage": "https://github.com/ikepu-tp/submission-list#readme",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.99",
+    "copyfiles": "^2.4.1",
+    "typescript": "^5.8.3"
+  }
+}
