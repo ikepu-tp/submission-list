@@ -1,6 +1,8 @@
-export type UserType = "teacher" | "student" | null;
+export type UserType = "teacher" | "student" | "unknown";
 export function getUserType(): UserType {
   const meta = document.querySelector('meta[id="userType"]');
   const content = meta?.getAttribute("content");
-  return content === "teacher" ? "teacher" : "student";
+  if (content === "teacher") return "teacher";
+  if (content === "student") return "student";
+  return "unknown";
 }
