@@ -1,4 +1,5 @@
-export type UserType = "teacher" | "student" | "unknown";
+import { UserType } from "../types";
+
 export function getUserType(): UserType {
   const meta = document.querySelector('meta[id="userType"]');
   const content = meta?.getAttribute("content");

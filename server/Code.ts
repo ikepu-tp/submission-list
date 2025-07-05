@@ -1,5 +1,3 @@
-type UserType = "teacher" | "student" | "unknown";
-
 function doGet() {
   let userType: UserType = getUserType();
 
