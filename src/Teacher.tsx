@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
-import { GASClient } from "gas-client";
 import { JSX, useEffect, useState } from "react";
 import SelectStudent from "./components/SelectStudent";
+import fetchStudents from "./models/fetchStudents";
 import { StudentResource } from "./types";
 
 /**
@@ -13,21 +13,12 @@ export default function Teacher(): JSX.Element {
   const [currentStudent, setCurrentStudent] = useState<StudentResource | null>(
     null
   );
-  const { serverFunctions } = new GASClient();
 
   useEffect(() => {
-    fetchStudents();
+    fetchStudents().then((fetchedStudents) => {
+      setStudents(fetchedStudents);
+    });
   }, []);
-
-  async function fetchStudents(): Promise<void> {
-    try {
-      const students = await serverFunctions.getStudents();
-      setStudents(students);
-    } catch (error) {
-      console.error("Failed to fetch students:", error);
-      throw error;
-    }
-  }
   return (
     <Box>
       {!currentStudent && (
