@@ -22,11 +22,7 @@ export default function Teacher(): JSX.Element {
   return (
     <Box>
       {!currentStudent && (
-        <SelectStudent
-          students={students}
-          currentStudent={currentStudent}
-          onSelect={setCurrentStudent}
-        />
+        <SelectStudent students={students} onSelect={setCurrentStudent} />
       )}
     </Box>
   );
