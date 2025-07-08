@@ -11,7 +11,7 @@ export default async function fetchStudents(): Promise<StudentResource[]> {
       ["2", "Bob Johnson", "example@example.jp"],
     ];
   try {
-    const students = await serverFunctions.getStudents();
+    const students = await serverFunctions.getStudentDatas();
     return students;
   } catch (error) {
     console.error("Failed to fetch students:", error);

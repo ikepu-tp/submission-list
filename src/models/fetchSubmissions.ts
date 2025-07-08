@@ -3,7 +3,7 @@ import { SubmissionResource } from "../types";
 import { isDevelopmentMode } from "../utils";
 
 export default async function fetchSubmissions(
-  studentId: string
+  studentId: string | number
 ): Promise<SubmissionResource[]> {
   const { serverFunctions } = new GASClient();
 

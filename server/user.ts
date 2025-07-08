@@ -11,8 +11,6 @@ function getTeachers(): TeacherResource[] {
 }
 
 function getStudents(): StudentResource[] {
-  if (!isTeacher()) throw new Error("Only teachers can access student data.");
-
   const settingSheet = getSettingSheet();
   const studentsRange = settingSheet.getRange("J:L");
   const studentsValues = studentsRange.getValues() as StudentResource[];
