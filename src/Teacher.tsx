@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import { JSX, useEffect, useState } from "react";
+import SelectedStudent from "./components/SelectedStudent";
 import SelectStudent from "./components/SelectStudent";
 import fetchStudents from "./models/fetchStudents";
 import { StudentResource } from "./types";
@@ -21,7 +22,12 @@ export default function Teacher(): JSX.Element {
   }, []);
   return (
     <Box>
-      {!currentStudent && (
+      {currentStudent ? (
+        <SelectedStudent
+          currentStudent={currentStudent}
+          onSelect={setCurrentStudent}
+        />
+      ) : (
         <SelectStudent students={students} onSelect={setCurrentStudent} />
       )}
     </Box>
