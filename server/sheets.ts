@@ -29,3 +29,18 @@ function showLicense() {
 function getSettingSheet() {
   return SS.getSheetById(0);
 }
+
+/**
+ * 提出物シート取得
+ *
+ * @return {*}  {GoogleAppsScript.Spreadsheet.Sheet[]}
+ */
+function getSubmissionSheets(): GoogleAppsScript.Spreadsheet.Sheet[] {
+  const exceptSheetNames = [
+    getSettingValues("setting_sheet_name"),
+    getSettingValues("template_sheet_name"),
+  ];
+  return SS.getSheets().filter(
+    (sheet) => !exceptSheetNames.includes(sheet.getName())
+  );
+}

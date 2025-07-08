@@ -1,5 +1,7 @@
 type SettingResource = {
   [key: string]: string;
+  setting_sheet_name: string;
+  template_sheet_name: string;
 };
 /**
  * 設定値
