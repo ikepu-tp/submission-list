@@ -27,7 +27,12 @@ export default function DisplaySubmissions({
   return (
     <Box sx={{ padding: 2, margin: 2 }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs value={TabValue} onChange={handleTabValue}>
+        <Tabs
+          value={TabValue}
+          onChange={handleTabValue}
+          variant="scrollable"
+          scrollButtons="auto"
+        >
           {submissionConditions.map((condition, index) => (
             <Tab
               label={condition.name}
