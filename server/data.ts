@@ -10,10 +10,12 @@ function getSubmissions(studentId: string): SubmissionResource[] {
     let conditions: SubmissionConditionResource[] = [];
     data[0].forEach((style, index) => {
       if (index < 2) return; // Skip first two columns (ID and Name)
+      let value = studentRowIndex[index];
+      if (value === "") value = undefined;
       conditions.push({
         name: data[1][index],
         style: style === "○△×" ? "yes_no" : "none",
-        condition: studentRowIndex[index] || undefined,
+        condition: value || undefined,
       });
     });
 

@@ -3,7 +3,8 @@ import { JSX, useEffect, useState } from "react";
 import SelectedStudent from "./components/SelectedStudent";
 import SelectStudent from "./components/SelectStudent";
 import fetchStudents from "./models/fetchStudents";
-import { StudentResource } from "./types";
+import fetchSubmissions from "./models/fetchSubmissions";
+import { StudentResource, SubmissionResource } from "./types";
 
 /**
  *
@@ -14,18 +15,31 @@ export default function Teacher(): JSX.Element {
   const [currentStudent, setCurrentStudent] = useState<StudentResource | null>(
     null
   );
+  const [SubmissionCondition, setSubmissionCondition] = useState<
+    SubmissionResource[]
+  >([]);
 
   useEffect(() => {
     fetchStudents().then((fetchedStudents) => {
       setStudents(fetchedStudents);
     });
   }, []);
+  useEffect(() => {
+    if (currentStudent) {
+      fetchSubmissions(currentStudent[0]).then((fetchedSubmissions) => {
+        setSubmissionCondition(fetchedSubmissions);
+      });
+    } else {
+      setSubmissionCondition([]);
+    }
+  }, [currentStudent]);
   return (
     <Box>
       {currentStudent ? (
         <SelectedStudent
           currentStudent={currentStudent}
           onSelect={setCurrentStudent}
+          submissionConditions={SubmissionCondition}
         />
       ) : (
         <SelectStudent students={students} onSelect={setCurrentStudent} />
