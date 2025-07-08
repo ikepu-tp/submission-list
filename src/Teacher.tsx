@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, CircularProgress, Typography } from "@mui/material";
 import { JSX, useEffect, useState } from "react";
 import SelectedStudent from "./components/SelectedStudent";
 import SelectStudent from "./components/SelectStudent";
@@ -33,6 +33,14 @@ export default function Teacher(): JSX.Element {
       setSubmissionCondition([]);
     }
   }, [currentStudent]);
+
+  if (students.length === 0)
+    return (
+      <Box>
+        <CircularProgress />
+        <Typography sx={{ ml: 2 }}>Loading...</Typography>
+      </Box>
+    );
   return (
     <Box>
       {currentStudent ? (

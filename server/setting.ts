@@ -8,7 +8,7 @@ type SettingResource = {
  *
  * @types {SettingResource}
  */
-let SettingValues = {};
+let SettingValues = null;
 
 /**
  * 設定値取得

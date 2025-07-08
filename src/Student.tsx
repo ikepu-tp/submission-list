@@ -1,4 +1,10 @@
-import { Box, Button, Paper, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Paper,
+  Typography,
+} from "@mui/material";
 import { JSX, useEffect, useState } from "react";
 import DisplaySubmissions from "./components/DisplaySubmissions";
 import fetchActiveUser from "./models/fetchActiveUser";
@@ -39,7 +45,13 @@ export default function Student(): JSX.Element {
     setShow(!Show);
   }
 
-  if (!Student) return <></>;
+  if (!Student)
+    return (
+      <Box>
+        <CircularProgress />
+        <Typography sx={{ ml: 2 }}>Loading...</Typography>
+      </Box>
+    );
   if (!Show)
     return (
       <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
